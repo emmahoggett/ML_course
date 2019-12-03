@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Some helper functions."""
 import os
 import shutil
@@ -33,7 +32,6 @@ def load_image(path):
     """use the scipy.misc to load the image."""
     return misc.imread(path)
 
-
 def build_distance_matrix(data, mu):
     """build a distance matrix.
     return
@@ -41,12 +39,9 @@ def build_distance_matrix(data, mu):
             row of the matrix represents the data point,
             column of the matrix represents the k-th cluster.
     """
-    
-    dist_list=[]
+    distance_list = []
     num_cluster, _ = mu.shape
-    
-    for k in range(num_cluster):
-        norm = np.sum(np.square(data - mu[k,:]), axis = 1)
-        dist_list.append(norm)
-        
-    return np.array(dist_list).T
+    for k_th in range(num_cluster):
+        sum_squares = np.sum(np.square(data - mu[k_th, :]), axis=1)
+        distance_list.append(sum_squares)
+    return np.array(distance_list).T

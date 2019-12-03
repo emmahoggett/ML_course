@@ -23,10 +23,8 @@ def plot_cluster(data, mu, colors, ax):
     for k_th in range(mu.shape[0]):
         rows = np.where(assignments == k_th)
         data_of_kth_cluster = data[rows, :]
-        ax.scatter(
-            data_of_kth_cluster[:, 0],
-            data_of_kth_cluster[:, 1],
-            s=40, c=colors[k_th])
+        ax.scatter(data_of_kth_cluster[:, 0],data_of_kth_cluster[:, 1],s=40, c=colors[k_th])
+        
     ax.grid()
     ax.set_xlabel("x")
     ax.set_ylabel("y")
@@ -46,8 +44,8 @@ def plot(data, mu, mu_old, out_dir):
     ax2.scatter(mu[:, 0], mu[:, 1],
                 facecolors='none', edgecolors='y', s=80)
 
-    # matplotlib.rc('xtick', labelsize=5)
-    # matplotlib.rc('ytick', labelsize=5)
+    matplotlib.rc('xtick', labelsize=5)
+    matplotlib.rc('ytick', labelsize=5)
 
     plt.tight_layout()
     plt.savefig(out_dir)
