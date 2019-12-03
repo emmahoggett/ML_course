@@ -2,8 +2,7 @@
 import os
 import shutil
 import numpy as np
-from scipy import misc
-
+from matplotlib.pyplot import imread
 
 def load_data():
     """Load data and convert it to the metrics system."""
@@ -30,7 +29,7 @@ def build_dir(dir):
 
 def load_image(path):
     """use the scipy.misc to load the image."""
-    return misc.imread(path)
+    return imread(path)
 
 def build_distance_matrix(data, mu):
     """build a distance matrix.
